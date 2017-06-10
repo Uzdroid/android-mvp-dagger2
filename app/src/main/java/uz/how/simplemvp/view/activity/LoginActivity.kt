@@ -1,5 +1,6 @@
 package uz.how.simplemvp.view.activity
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -28,12 +29,12 @@ class LoginActivity : AppCompatActivity(), LoginView {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
 
-         if (prefs.contains(Constants.LOGIN)) {
-             ProfileActivity.start(this)
-             return
-         }
+        if (prefs.contains(Constants.LOGIN)) {
+            ProfileActivity.start(this)
+            return
+        }
         setContentView(R.layout.activity_login)
-        loginButton.setOnClickListener({onLogin()})
+        loginButton.setOnClickListener({ onLogin() })
     }
 
     fun onLogin() {
@@ -53,7 +54,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 
     override fun authError() {
-        Toast.makeText(this, R.string.auth_error_message, Toast.LENGTH_SHORT).show()
+        showToast(R.string.connection_error)
     }
 
     override fun authSuccess() {
@@ -75,6 +76,11 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 
     override fun connectionError() {
-        Toast.makeText(this, R.string.connection_error, Toast.LENGTH_SHORT).show()
+        showToast(R.string.connection_error)
+    }
+   
+    fun Context.showToast(messageId: Int) {
+        Toast.makeText(this,messageId,Toast.LENGTH_SHORT).show();
     }
 }
+
