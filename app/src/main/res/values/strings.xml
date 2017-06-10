@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SimpleMVP</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="auth_error_message">Username does not match the password</string>
+    <string name="connection_error">Connection Error</string>
+    <string name="show_repos">Show Repos</string>
+    <string name="try_again">Try Again</string>
+    <string name="no_repos">No Repos</string>
+    <string name="my_github">My Github</string>
+    <string name="logout">Logout</string>
+</resources>
